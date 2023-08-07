@@ -118,7 +118,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Multi-task view synthesis with MuvieNeRF compared with conventional discriminative multi-task learning method.
+        Our MuvieNeRF compared with conventional discriminative multi-task learning method.
       </h2>
     </div>
   </div>
@@ -188,8 +188,11 @@ and Cross-Task Attention (CTA) modules. It predicts multiple scene properties fo
       </div>
     </div>
     <!--/ Abstract. -->
-    
+      </div>
+</section>
 
+    <section class="section">
+  <div class="column is-full-width">
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -200,27 +203,39 @@ and Cross-Task Attention (CTA) modules. It predicts multiple scene properties fo
           <h3 class="title is-4">Comparison with Baselines</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            We conduct experiments on two datasets: <a href="https://arxiv.org/abs/1906.05797">Replica</a> and <a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/McCormac_SceneNet_RGB-D_Can_ICCV_2017_paper.pdf">SceneNet RGB-D</a>. 
+            Five tasks beyond RGB are chosen: surface normal prediction (SN), 
+            shading prediction (SH), edge detection (ED), keypoint detection (KP) and semantic label prediction (SL). Baseline methods include the state-of-the-art discriminative model
+            <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136870506.pdf">InvPT</a>, single-task NeRF model
+            <a href="https://shuaifengzhi.com/Semantic-NeRF/">Semantic-NeRF</a> and naive multi-task NeRF model 
+            <a href="https://openaccess.thecvf.com/content/WACV2023/papers/Zhang_Beyond_RGB_Scene-Property_Synthesis_With_Neural_Radiance_Fields_WACV_2023_paper.pdf">SS-NeRF</a>.
           </p>
-          <div align="center"><span class="image fit"><img src="./static/images/replica.png" alt="" /></span></div>
+          
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            Qualitative comparison on Replica dataset:
           </p>
-          <div align="center"><span class="image fit"><img src="./static/images/scenenet.png" alt="" /></span></div>
+        
+          <div align="center"><span class="image fit"><img src="./static/images/replica.png" alt="" width=80% /></span></div>
+          <p>
+            Qualitative comparison on SceneNet RGB-D dataset:
+          </p>
+          <div align="center"><span class="image fit"><img src="./static/images/scenenet.png" alt="" width=70% /></span></div>
         </div>
 
           <h3 class="title is-4">Out-of-distribution Generalization</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            The knowledge of multi-task synergy learned during training benefits generalization on out-of-distribution datasets, boosting the performance of 
+            novel view RGB synthesis, even when 2D task signals from input views are unavailable.
           </p>
-          <div align="center"><span class="image fit"><img src="./static/images/ood.png" alt="" /></span></div>
+          
+          <p>
+            Four out-of-distribution datasets <a href="http://www.scan-net.org/">ScanNet</a>, 
+            <a href="https://theairlab.org/tartanair-dataset/">TartanAir</a>, 
+            <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Yao_BlendedMVS_A_Large-Scale_Dataset_for_Generalized_Multi-View_Stereo_Networks_CVPR_2020_paper.pdf">BlendedMVS</a>, 
+            <a href="https://bmild.github.io/llff/">LLFF</a> (from left to right, top to bottom) are evaluated:
+          </p>
+          <div align="center"><span class="image fit"><img src="./static/images/ood.png" alt="" width=80% /></span></div>
         </div>
 <!--         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
@@ -254,152 +269,14 @@ and Cross-Task Attention (CTA) modules. It predicts multiple scene properties fo
 </section>
 
 
-  
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. --> 
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@inproceedings{zheng2023mtvs,
+  title={Multi-task View Synthesis with Neural Radiance Fields},
+  author={Zheng, Shuhong and Bao, Zhipeng and Hebert, Martial and Wang, Yu-Xiong},
+  booktitle={ICCV},
+  year={2023}
 }</code></pre>
   </div>
 </section>
@@ -412,7 +289,7 @@ and Cross-Task Attention (CTA) modules. It predicts multiple scene properties fo
          href="./static/videos/nerfies_paper.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/zsh2000/" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
